@@ -11,7 +11,7 @@ env:
 script:
 - travis_wait 120 docker build -t brookskd/docker-ethminer:$COMMIT .
 after_success:
-- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export REPO=brookskd/docker-ethminer
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH
   ; fi`
